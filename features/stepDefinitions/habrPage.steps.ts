@@ -1,12 +1,12 @@
 import { browser,ExpectedConditions,by, element } from "protractor";
-import { HabrHomePage } from "../pageObjects/habrHome.page";
-import { HabrDevPage } from "../pageObjects/habrDev.page";
+import { HabrHomePage } from "../pageObjects/habr/habrHome.page";
+import { HabrDevPage } from "../pageObjects/habr/habrDev.page";
 
 const defaultTimeout = browser.params.defaultTimeout;
 
 export = function habrSteps()
 {
-    this.setDefaultTimeout(11000);
+    this.setDefaultTimeout(defaultTimeout);
 
     let habrHome = new HabrHomePage;
     let habrDev = new HabrDevPage;

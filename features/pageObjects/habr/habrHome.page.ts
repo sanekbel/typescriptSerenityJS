@@ -1,5 +1,5 @@
 import { browser, ExpectedConditions, ElementFinder } from "protractor";
-import { habrHomeObj } from "../objectRepository/habrHome.obj";
+import { habrHomeObj } from "../../objectRepository/habr/habrHome.obj";
 import { Before } from "cucumber";
 
 const defaultTimeout: number = browser.params.defaultTimeout;
@@ -44,6 +44,8 @@ export class HabrHomePage{
             default:
                 habrElement = this.habrHomeElements.loginButton;
         }
-        await browser.wait(expect.textToBePresentInElement(habrElement, text), defaultTimeout, `The ${element} element don't have ${text} text`);
+
+        await browser.wait(expect.textToBePresentInElement(habrElement, text), 1000, `The ${element} element don't have ${text} text`);
+       // browser.switchTo().frame(this.habrHomeElements.frame.getWebElement())
     }
 }
