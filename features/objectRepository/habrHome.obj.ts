@@ -4,5 +4,6 @@ export class habrHomeObj{
     readonly logo = element(by.className("logo"));
     readonly searchField = element(by.id("searc-form-btn"));
     readonly developmentButton = element(by.xpath("//a[contains(@href,'https://habr.com/en/flows/develop/')]"));
-    readonly developmentLogo = element(by.xpath('/html/body/div[1]/div[3]/div/div[1]/div[1]/div[1]'));
+    readonly developmentLogo = element(by.css("div.page-header.page-header_110"));
+    readonly loginButton = element(by.id('login'));
 }

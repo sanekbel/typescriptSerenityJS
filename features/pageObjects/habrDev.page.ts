@@ -1,5 +1,5 @@
 import { browser, ExpectedConditions } from "protractor";
-import { habrDevObj } from "../objectRepository/habr.dev.obj";
+import { habrDevObj } from "../objectRepository/habrDev.obj";
 
 const defaultTimeout = browser.params.defaultTimeout;
 const expect = ExpectedConditions;

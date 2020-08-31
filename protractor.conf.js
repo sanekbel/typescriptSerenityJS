@@ -14,7 +14,7 @@ exports.config = {
     specs: ['features/**/*.feature'],
 
     params: {
-        defaultTimeout : 60000
+        defaultTimeout : 10000
     },
 
     cucumberOpts: {
