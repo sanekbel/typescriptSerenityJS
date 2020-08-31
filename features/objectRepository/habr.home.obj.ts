@@ -1,6 +1,6 @@
 import { by, element } from "protractor";
 
-export class TestObj{
+export class habrHomeObj{
     readonly logo = element(by.className("logo"));
     readonly searchField = element(by.id("searc-form-btn"));
     readonly developmentButton = element(by.xpath("//a[contains(@href,'https://habr.com/en/flows/develop/')]"));

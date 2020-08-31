@@ -1,25 +1,29 @@
 import { browser,ExpectedConditions,by, element } from "protractor";
-import { HabrPage } from "../testPages/habrPage";
+import { HabrHomePage } from "../pageObjects/habr.home.page";
+import { HabrDevPage } from "../pageObjects/habr.dev.page";
 
 const defaultTimeout = browser.params.defaultTimeout;
 
-export = function habrPageSteps(){
+export = function habrSteps()
+{
+    this.setDefaultTimeout(defaultTimeout);
 
-    let habr = new HabrPage;
+    let habrHome = new HabrHomePage;
+    let habrDev = new HabrDevPage;
 
     this.Given(/^I navigate to habr page$/, async () => {
-        await habr.OpenPage();
+        await habrHome.OpenHabrHome();
     });
 
     this.Then(/^I am on habr page$/, async () => {
-        await habr.HabrLoaded();
+        await habrHome.HabrHomeLoaded();
     });
 
     this.Then(/^I click on Development button$/, async () => {
-        await habr.habrElements.developmentButton.click();
+        await habrHome.habrHomeElements.developmentButton.click();
     });
 
     this.Then(/^I am on Development page$/, async () => {
-        await habr.DevelopmentLoaded;
+        await habrDev.HabrDevLoaded();
     });
 }
