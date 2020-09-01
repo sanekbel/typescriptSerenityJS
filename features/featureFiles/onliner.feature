@@ -12,3 +12,4 @@ Scenario: Open onliner and check dropdown
     Given I navigate to onliner page
     And onliner car dropdown is loaded
     When I check "Acura" car from dropdown
+    Then dropdown has "Acuraa" text

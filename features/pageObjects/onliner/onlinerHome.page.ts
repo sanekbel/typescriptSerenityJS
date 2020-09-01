@@ -36,4 +36,8 @@ export class OnlinerHomePage{
         await browser.wait(expect.presenceOf(element(by.xpath(`//option[contains(@value, ${car})]`))));
         element(by.xpath(`//option[contains(@value, ${car})]`)).click();
     }
+
+    public async DropdownHasText(text: string){
+        await browser.wait(expect.textToBePresentInElementValue(this.onlinerHomeElements.carDropdown, text));
+    }
 }

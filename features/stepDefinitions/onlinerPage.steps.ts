@@ -32,4 +32,8 @@ export = function habrSteps()
     this.Then(/^I check "(.*?)" car from dropdown$/, async (car: string) => {
         await onlinerHome.ChooseTheCar(car);
     });
+
+    this.Then(/^dropdown has "(.*?)" text$/, async (car: string) => {
+        await onlinerHome.onlinerHomeElements.carDropdown
+    });
 }
