@@ -33,11 +33,11 @@ export class OnlinerHomePage{
 
     public async ChooseTheCar(car: string){
         await this.onlinerHomeElements.carDropdown.click();
-        await browser.wait(expect.presenceOf(element(by.xpath(`//option[contains(@value, ${car})]`))));
-        element(by.xpath(`//option[contains(@value, ${car})]`)).click();
+        await browser.wait(expect.presenceOf(element(by.xpath(`//option[contains(@value, '${car}')]`))));
+        await element(by.xpath(`//option[contains(@value, '${car}')]`)).click();
     }
 
     public async DropdownHasText(text: string){
-        await browser.wait(expect.textToBePresentInElementValue(this.onlinerHomeElements.carDropdown, text));
+        await browser.wait(expect.textToBePresentInElement(this.onlinerHomeElements.carDropdown, text), defaultTimeout);
     }
 }
