@@ -1,4 +1,4 @@
-import { browser, ExpectedConditions, ElementFinder } from "protractor";
+import { browser, ExpectedConditions, by, element } from "protractor";
 import { onlinerHomeObj } from "../../objectRepository/onliner/onlinerHome.obj";
 
 const defaultTimeout: number = browser.params.defaultTimeout;
@@ -19,11 +19,21 @@ export class OnlinerHomePage{
 
     public async CatalogFrameIsPresent(){
         await browser.switchTo().frame(this.onlinerHomeElements.frame.getWebElement());
-        await browser.wait(expect.visibilityOf(this.onlinerHomeElements.frameCatalog), defaultTimeout);
+        await browser.wait(expect.presenceOf(this.onlinerHomeElements.frameCatalog), defaultTimeout);
         await this.onlinerHomeElements.frameCatalog.click();
     }
 
     public async CheckTheUrl(url: string){
         await browser.wait(expect.urlIs(url));
+    }
+
+    public async CarDropdownIsPresent(){
+        await browser.wait(expect.presenceOf(this.onlinerHomeElements.carDropdown));
+    }
+
+    public async ChooseTheCar(car: string){
+        await this.onlinerHomeElements.carDropdown.click();
+        await browser.wait(expect.presenceOf(element(by.xpath(`//option[contains(@value, ${car})]`))));
+        element(by.xpath(`//option[contains(@value, ${car})]`)).click();
     }
 }

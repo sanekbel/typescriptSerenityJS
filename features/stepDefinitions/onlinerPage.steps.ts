@@ -24,4 +24,12 @@ export = function habrSteps()
     this.Then(/^I am on Catalog page$/, async () => {
         await onlinerHome.CheckTheUrl('https://catalog.onliner.by');
     });
+
+    this.Then(/^onliner car dropdown is loaded$/, async () => {
+        await onlinerHome.CarDropdownIsPresent();
+    });
+
+    this.Then(/^I check "(.*?)" car from dropdown$/, async (car: string) => {
+        await onlinerHome.ChooseTheCar(car);
+    });
 }
