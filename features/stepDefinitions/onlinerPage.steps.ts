@@ -1,5 +1,6 @@
 import { browser,ExpectedConditions,by, element } from "protractor";
 import { OnlinerHomePage } from "../pageObjects/onliner/onlinerHome.page";
+import { OnlinerCatalogMobilePage } from "../pageObjects/onliner/onlinerCatalogMobile.page";
 
 const defaultTimeout = browser.params.defaultTimeout;
 
@@ -8,6 +9,7 @@ export = function habrSteps()
     this.setDefaultTimeout(defaultTimeout);
 
     let onlinerHome = new OnlinerHomePage;
+    let onlinerCatalogMobile = new OnlinerCatalogMobilePage;
 
     this.Given(/^I navigate to onliner page$/, async () => {
         await onlinerHome.OpenOnlinerHome();
@@ -35,5 +37,21 @@ export = function habrSteps()
 
     this.Then(/^dropdown has "(.*?)" text$/, async (text: string) => {
         await onlinerHome.DropdownHasText(text);
+    });
+
+    this.Then(/^I navigate to onliner catalog page$/, async () => {
+        await onlinerCatalogMobile.OpenCatalogMobileHome();
+    });
+
+    this.Then(/^onliner mobile catalog is loaded$/, async () => {
+        await onlinerCatalogMobile.onlinerCatalogIsLoaded();
+    });
+
+    this.Then(/^I check "Xiaomi" checkbox$/, async () => {
+        await onlinerCatalogMobile.XiaomiCheckboxIsSelected();
+    });
+
+    this.Then(/^Xiaomi filter is selected$/, async () => {
+        await onlinerCatalogMobile.XiaomiIsShown();
     });
 }
